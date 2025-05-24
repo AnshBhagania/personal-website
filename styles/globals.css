@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #000000;
+  --color-muted: #666666;
+  --color-accent: #111111;
+}
+
+[data-theme='dark'] {
+  --color-bg: #111111;
+  --color-text: #ffffff;
+  --color-muted: #999999;
+  --color-accent: #eeeeee;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+@keyframes cli-loader {
+    0%, 80%, 100% { opacity: 0; }
+    40% { opacity: 1; }
+}
+  
+  .cli-dot {
+    animation: cli-loader 1.7s infinite;
+    opacity: 0;
+    display: inline-block;
+    animation-play-state: paused;
+  }
+  
+  .cli-dot:nth-child(1) { animation-delay: 0s; }
+  .cli-dot:nth-child(2) { animation-delay: 0.3s; }
+  .cli-dot:nth-child(3) { animation-delay: 0.7s; }
+  
+  .group:hover .cli-dot {
+    animation-play-state: running;
+  }
+
+body {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="10" fill="black"/></svg>') 10 10, auto;
+}
