@@ -11,7 +11,7 @@ export default function Loader() {
   useEffect(() => {
     if (!isLoading) return
     const t1 = setTimeout(() => setStep('text-in'), 1000)
-    const t2 = setTimeout(() => setStep('exit'), 2500)
+    const t2 = setTimeout(() => setStep('exit'), 2100)
     return () => {
       clearTimeout(t1)
       clearTimeout(t2)
@@ -29,16 +29,17 @@ export default function Loader() {
           <div className="relative w-full max-w-screen-xl flex items-center justify-center h-screen">
             {/* Left text */}
             <motion.div
-              initial={{ x: '-100vw', opacity: 0 }}
+              initial={{ x: '-100vw', opacity: 0, y: '2vw' }}
               animate={
-                step !== 'init'
-                  ? { x: 0, opacity: 1, transition: { duration: 0.8, ease: 'easeOut' } }
-                  : {}
+              step !== 'init'
+                ? { x: '34vw', opacity: 1, transition: { duration: 0.9, ease: 'easeOut' } }
+                : {}
               }
-              exit={{ x: '-100vw', opacity: 0, transition: { duration: 0.6 } }}
-              className="absolute left-0 text-lg font-grotB font-bold"
+              exit={{ y: '-69vw', opacity: 0, transition: { duration: 0.7, ease: 'easeOut' } }}
+              className="absolute left-0 text-lg font-grotB font-bold z-0"
             >
-              [designer&developer]
+              [designer& <br />
+              developer]
             </motion.div>
 
             {/* Avatar */}
@@ -46,8 +47,9 @@ export default function Loader() {
               src="/assets/hero.png"
               layoutId="avatar"
               initial={{ scale: 0 }}
-              animate={{ scale: 1, transition: { duration: 1, ease: 'easeOut' } }}
-              className="w-24 h-24 rounded-full object-cover"
+              animate={{ scale: 1.3, transition: { duration: 1.2, ease: 'easeInOut' } }}
+              className="w-48 h-48 rounded-full object-cover"
+              exit={{ scale: 0.7, y: '-69vw', opacity: 0, transition: { duration: 0.9, ease: 'easeOut' } }}
             />
 
             {/* Right text */}
@@ -56,9 +58,10 @@ export default function Loader() {
               initial={{ x: '100vw', opacity: 0 }}
               animate={
                 step !== 'init'
-                  ? { x: 0, opacity: 1, transition: { duration: 0.8, ease: 'easeOut', delay: 0.2 } }
+                  ? { scale: 1.2, x: '-13vw', opacity: 1, transition: { duration: 0.8, ease: 'easeOut', delay: 0.2 } }
                   : {}
               }
+              exit={{ scale: 0.9, y: '-69vw', opacity: 0, transition: { duration: 0.8, ease: 'easeOut' } }}
               className="absolute right-0 text-xl font-grotB font-bold"
             >
               anshbhagania

@@ -40,7 +40,3 @@ body {
   .group:hover .cli-dot {
     animation-play-state: running;
   }
-
-body {
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="10" fill="black"/></svg>') 10 10, auto;
-}

@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <LoadingProvider>
         <Loader />
         <div className="grid grid-cols-7 gap-[10px] min-h-screen">
-          <div className="col-span-2">
+          <div className="col-span-2 flex justify-center">
             <Sidebar />
           </div>
           <main className="col-span-5 p-8">

@@ -7,7 +7,7 @@ export const LoadingProvider = ({ children }: { children: React.ReactNode }) => 
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 3500) // adjust as needed
+    const timer = setTimeout(() => setIsLoading(false), 2700) // adjust as needed
     return () => clearTimeout(timer)
   }, [])
 
