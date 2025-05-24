@@ -5,7 +5,7 @@ export const Avatar = () => {
   return (
     <div className="flex items-center gap-4">
       <motion.img
-        src="/assets/hero.png"
+        src={`/assets/hero.png`}
         alt="Avatar"
         layoutId='avatar'
         className="w-20 h-20 object-cover rounded-full"

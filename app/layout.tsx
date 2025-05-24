@@ -33,11 +33,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="en"
       className={`${grot.variable} ${space.variable} `}
     >
-      <body className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
+      <body className="min-h-screen max-w-full bg-[var(--color-bg)] text-[var(--color-text)]">
       <LoadingProvider>
         <Loader />
         <div className="grid grid-cols-7 gap-[10px] min-h-screen">
-          <div className="col-span-2 flex justify-center">
+          <div className="col-span-2 flex">
             <Sidebar />
           </div>
           <main className="col-span-5 p-8">

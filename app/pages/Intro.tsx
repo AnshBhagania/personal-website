@@ -11,7 +11,7 @@ export default function Intro() {
   })
 
   // Animate lineHeight from 0.45 to 1.05 as scrollYProgress goes from 0 to 1
-  const lineHeight = useTransform(scrollYProgress, [-0.02, 0.02], [0.37, 1.05])
+  const lineHeight = useTransform(scrollYProgress, [-0.02, 0.02], [0.37, 1.03])
   const offsetY = useTransform(scrollYProgress, [-0.05, 0.05], [0, 0]) // optional drift
 
   return (

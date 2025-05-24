@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
+const isGithubPages = process.env.NODE_ENV === 'production'
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+const nextConfig = {
+  output: 'export',
+  basePath: isGithubPages ? '/personal-website' : '',
+  assetPrefix: isGithubPages ? '/personal-website/' : '',
+  images: {
+    unoptimized: true,
+  },
+}
 
-export default nextConfig;
+module.exports = nextConfig

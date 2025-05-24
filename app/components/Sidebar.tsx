@@ -34,11 +34,11 @@ export const Sidebar = () => {
   const { isLoading } = useLoading()
 
   return (
-    <aside className={`py-7 ps-8 flex flex-col items-start gap-12 ml-2 left-1 fixed z-50 transition-opacity duration-500 font-grotB font-bold ${
+    <aside className={`py-9 ps-8 flex flex-col justify-start gap-8 ml-8 fixed z-50 transition-opacity duration-500 font-grotB font-bold ${
         isLoading ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}>
       <Avatar />
-      <nav className="mt-[11rem] flex flex-col space-y-4 text-[var(--color-muted)] font-medium w-full">
+      <nav className="py-3 mt-[11rem] flex flex-col space-y-2 text-[var(--color-muted)] font-medium w-full">
         {sections.map(section => (
           <Link
             key={section}
