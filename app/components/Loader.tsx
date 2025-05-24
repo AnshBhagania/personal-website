@@ -36,7 +36,7 @@ export default function Loader() {
                   : {}
               }
               exit={{ x: '-100vw', opacity: 0, transition: { duration: 0.6 } }}
-              className="absolute left-0 text-lg font-grotSB"
+              className="absolute left-0 text-lg font-grotB font-bold"
             >
               [designer&developer]
             </motion.div>
@@ -59,7 +59,7 @@ export default function Loader() {
                   ? { x: 0, opacity: 1, transition: { duration: 0.8, ease: 'easeOut', delay: 0.2 } }
                   : {}
               }
-              className="absolute right-0 text-xl font-grotXB"
+              className="absolute right-0 text-xl font-grotB font-bold"
             >
               anshbhagania
             </motion.span>
