@@ -10,7 +10,7 @@ export default function Loader() {
   useEffect(() => {
     if (!isLoading) return
     const t1 = setTimeout(() => setStep('text-in'), 1000)
-    const t2 = setTimeout(() => setStep('exit'), 2400)
+    const t2 = setTimeout(() => setStep('exit'), 1900)
     return () => {
       clearTimeout(t1)
       clearTimeout(t2)
@@ -21,11 +21,11 @@ export default function Loader() {
     <AnimatePresence>
       {isLoading && (
         <motion.div
-          className="fixed inset-0 z-50 bg-[var(--color-bg)] flex items-center justify-center md:flex-row"
+          className="fixed inset-0 z-50 bg-[var(--color-bg)] flex items-center justify-center"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.5 } }}
+          exit={{ opacity: 0, transition: { duration: 1 } }}
         >
-          <div className="relative h-screen px-8 flex md:max-h-svh flex-row items-center justify-start gap-6">
+          <div className="relative h-screen w-full max-w-full flex flex-col lg:flex-row items-center justify-center gap-6 px-8">
 
             {/* Avatar */}
             <motion.img
@@ -33,12 +33,12 @@ export default function Loader() {
               layoutId="avatar"
               initial={{ scale: 0, opacity: 0, y: 40 }}
               animate={{ scale: 1.1, opacity: 1, y: 0, transition: { duration: 1.1, ease: 'easeInOut' } }}
-              exit={{ scale: 0.7, opacity: 0, y: -40, transition: { duration: 0.7, ease: 'easeIn' } }}
-              className="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover"
+              exit={{ scale: 0.7, opacity: 0, y: -70, transition: { duration: 0.3, ease: 'easeIn' } }}
+              className="w-32 h-32 md:w-64 md:h-64 rounded-full object-cover max-w-full"
             />
 
             {/* Text block */}
-            <div className="flex flex-col items-center md:items-start text-center md:text-left space-x-2">
+            <div className="flex flex-col items-center text-left lg:text-center space-x-2">
 
               {/* Right text */}
               <motion.span
@@ -48,7 +48,7 @@ export default function Loader() {
                   ? { opacity: 1, y: 0, scale: 1.1, transition: { duration: 0.7, ease: 'easeOut'} }
                   : {}
                 }
-                exit={{ opacity: 0, y: -70, scale: 0.9, transition: { duration: 0.4, ease: 'easeIn' } }}
+                exit={{ opacity: 0, y: -70, scale: 0.9, transition: { duration: 0.3, ease: 'easeIn' } }}
                 className="text-xl font-grotB font-bold"
               >
                 anshbhagania

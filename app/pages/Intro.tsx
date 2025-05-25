@@ -20,10 +20,10 @@ export default function Intro() {
         style={{
           y: offsetY,
         }}
-        className="flex flex-col items-start justify-center h-screen text-left px-8 -ml-2"
+        className="flex flex-col items-start justify-center h-screen w-full max-w-full text-left px-8 -ml-2"
       >
         <motion.p
-          className="text-7xl font-grotB font-semibold"
+          className="text-[clamp(3rem,5vw,7rem)] font-grotB font-semibold cursor-pointer"
           style={{ lineHeight }}
         >
           Hello there, I’m a<br />

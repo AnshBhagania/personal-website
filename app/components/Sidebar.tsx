@@ -34,20 +34,20 @@ export const Sidebar = () => {
   const { isLoading } = useLoading()
 
   return (
-    <aside className={`py-9 ps-8 flex flex-col justify-start gap-8 ml-8 fixed z-50 transition-opacity duration-500 font-grotB font-bold ${
+    <aside className={`py-9 ps-10 flex flex-col justify-start gap-8 ml-8 fixed z-50 transition-opacity duration-500 font-grotB font-bold ${
         isLoading ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}>
       <Avatar />
-      <nav className="py-3 mt-[11rem] flex flex-col space-y-2 text-[var(--color-muted)] font-medium w-full">
+      <nav className="mt-[clamp(11rem,11vw,17rem)] flex flex-col space-y-2 text-[var(--color-muted)] font-medium w-full">
         {sections.map(section => (
           <Link
-            key={section}
-            href={`#${section.toLowerCase()}`}
-            className={`transition-colors ${
-              active === section ? 'font-bold text-[var(--color-text)]' : 'text-[var(--color-accent)]'
-            }`}
+        key={section}
+        href={`#${section.toLowerCase()}`}
+        className={`transition-colors ${
+          active === section ? 'font-bold text-[var(--color-text)]' : 'text-[var(--color-accent)]'
+        }`}
           >
-            {section}
+        {section}
           </Link>
         ))}
       </nav>
