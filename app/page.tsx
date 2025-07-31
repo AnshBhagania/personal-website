@@ -1,13 +1,12 @@
 "use client"
 import Intro from './pages/Intro'
-import { useEffect } from 'react'
+import Work from './pages/Work'
 
 export default function HomePage() {
-  
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  return <Intro />
-  
+  return (
+    <>
+      <Intro />
+      <Work />
+    </>
+  )
 }

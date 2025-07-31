@@ -1,5 +1,3 @@
-
-import './globals.css'
 import '../styles/globals.css'
 import { LoadingProvider } from './components/LoadingContext'
 import Loader from './components/Loader'
@@ -8,6 +6,7 @@ import {
   Bricolage_Grotesque,
   Space_Mono,
 } from 'next/font/google'
+import { ScrollerProvider } from './components/ScrollContext'
 
 const grot = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -40,9 +39,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="col-span-2 flex">
             <Sidebar />
           </div>
-          <main className="col-span-5 p-8">
-            {children}
-          </main>
+          <ScrollerProvider>
+            <main className="col-span-5 p-8 scroller">
+              {children}
+            </main>
+          </ScrollerProvider>
         </div>
       </LoadingProvider>  
       </body>

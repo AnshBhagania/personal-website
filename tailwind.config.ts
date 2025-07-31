@@ -14,7 +14,9 @@ const config = {
         accent: "var(--color-accent)",
       },
       fontFamily: {
+        grot: ['var(--font-bg)', 'sans-serif'],
         grotB: ['var(--font-bg)', 'sans-serif'],
+        grotXB: ['var(--font-bg)', 'sans-serif'],
         space: ['var(--font-mono)', 'monospace'],
       },
     },

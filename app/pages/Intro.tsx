@@ -1,39 +1,40 @@
 'use client'
 
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { useScroller } from '../components/ScrollContext'
+import { FONT_CLASSES } from '../constants'
 
 export default function Intro() {
   const ref = useRef(null)
+  const scrollerRef = useScroller();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start'],
   })
 
-  // Animate lineHeight from 0.45 to 1.05 as scrollYProgress goes from 0 to 1
-  const lineHeight = useTransform(scrollYProgress, [-0.02, 0.02], [0.37, 1.03])
-  const offsetY = useTransform(scrollYProgress, [-0.05, 0.05], [0, 0]) // optional drift
+  // Animate lineHeight from 0.33 to 1.07 as scrollYProgress changes
+  const lineHeight = useTransform(scrollYProgress, [-0.05, 0.05], [0.33, 1.07])
 
   return (
-    <section ref={ref} id="intro" className="min-h-screen sticky top-0 z-10">
+    <section ref={ref} id="intro" className="min-h-screen snap-section">
       <motion.div
         style={{
-          y: offsetY,
+          lineHeight: lineHeight,
         }}
         className="flex flex-col items-start justify-center h-screen w-full max-w-full text-left px-8 -ml-2"
       >
         <motion.p
-          className="text-[clamp(3rem,5vw,7rem)] font-grotB font-semibold cursor-pointer"
-          style={{ lineHeight }}
+          className={`text-[clamp(3rem,5vw,7rem)] ${FONT_CLASSES.GROT_BOLD} font-semibold cursor-pointer`}
         >
-          Hello there, I’m a<br />
+          Hello there, I'm a<br />
           <span className="font-extrabold">designer & developer</span>
           <br />
           <span className="inline-block transition-transform hover:translate-x-16">
             ----- dragging <span className="font-extrabold">pixels</span> &
           </span>
           <br />
-          <span className="font-bold font-space group">
+          <span className={`font-bold ${FONT_CLASSES.SPACE} group`}>
             building code<span>
                             <span className="cli-dot">.</span>
                             <span className="cli-dot">.</span>
@@ -42,14 +43,13 @@ export default function Intro() {
           </span>
           <br />
           <span>
-            <span className="font-grot">to create </span>
+            <span className={FONT_CLASSES.GROT}>to create </span>
             <span className="font-extrabold">intuitive</span>
           </span>
           <br />
           <span className="font-extrabold">human experience</span>
         </motion.p>
       </motion.div>
-    <div style={{ height: '200vh' }} />
     </section>
   )
 }

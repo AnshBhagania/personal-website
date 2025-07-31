@@ -1,15 +1,13 @@
 'use client'
 
 import Link from 'next/link'
-import { Avatar } from './Avatar'
 import { useEffect, useState } from 'react'
+import { Avatar } from './Avatar'
 import { useLoading } from './LoadingContext'
-
-
-const sections = ['Intro', 'Work', 'Values', 'Background', 'About', 'Contact']
+import { NAVIGATION_SECTIONS, ANIMATION_TIMINGS } from '../constants'
 
 export const Sidebar = () => {
-  const [active, setActive] = useState('Intro')
+  const [active, setActive] = useState('intro')
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -20,12 +18,12 @@ export const Sidebar = () => {
           }
         })
       },
-      { threshold: 0.5 }
+      { threshold: ANIMATION_TIMINGS.SCROLL.INTERSECTION_THRESHOLD }
     )
 
-    sections.forEach(id => {
-      const section = document.getElementById(id.toLowerCase())
-      if (section) observer.observe(section)
+    NAVIGATION_SECTIONS.forEach((section: string) => {
+      const element = document.getElementById(section.toLowerCase())
+      if (element) observer.observe(element)
     })
 
     return () => observer.disconnect()
@@ -39,15 +37,15 @@ export const Sidebar = () => {
       }`}>
       <Avatar />
       <nav className="mt-[clamp(11rem,11vw,17rem)] flex flex-col space-y-2 text-[var(--color-muted)] font-medium w-full">
-        {sections.map(section => (
+        {NAVIGATION_SECTIONS.map((section: string) => (
           <Link
-        key={section}
-        href={`#${section.toLowerCase()}`}
-        className={`transition-colors ${
-          active === section ? 'font-bold text-[var(--color-text)]' : 'text-[var(--color-accent)]'
-        }`}
+            key={section}
+            href={`#${section.toLowerCase()}`} 
+            className={ active === section.toLowerCase() 
+              ? 'font-bold text-current' 
+              : 'text-muted' }
           >
-        {section}
+            {section}
           </Link>
         ))}
       </nav>
